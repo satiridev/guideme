@@ -1,12 +1,35 @@
-var todos = [{
-  id: '_1',
-  name: 'Buy some milk',
-  done: true
-}, {
-  id: '_2',
-  name: 'Birthday present to Alice',
+var todos  = [{
+  id: '1',
+  name: 'Call The Agent',
   done: false
-}];
+}, {
+  id: '2',
+  name: 'Visit the Property',
+  done: false
+},
+{
+  id: '3',
+  name: 'Sign The Contract',
+  done: false
+},
+{
+  id: '2',
+  name: 'Pay the Collateral',
+  done: false
+},
+{
+  id: '2',
+  name: 'Pay the Collateral',
+  done: false
+},
+];
+
+var { Router,
+      Route,
+      IndexRoute,
+      IndexLink,
+      Link } = ReactRouter;
+
 
 var Todo = React.createClass({
   render: function() {
@@ -31,18 +54,36 @@ var TodoList = React.createClass({
   }
 });
 
-var App = React.createClass({
+var  ActionCall = React.createClass({
   render: function() {
     return (
-      <div>
-        <h1>My Todo</h1>
-        <TodoList todos={todos}/>
+      <div className="action-call">
+        <h2>Action Call</h2>
+        <ul></ul>
       </div>
     );
   }
 });
 
+var App = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <h1></h1>
+        <TodoList todos={todos}/>
+        <ul>
+            <li><Link to="actioncall">Call The Agent</Link></li>
+        </ul>
+      </div>
+    );
+  }
+});
+
+
 React.render(
-  <App></App>,
-  document.getElementById('app-container')
-);
+<Router>
+    <Route path="/" component={App}></Route>
+    <Route path="actioncall" component={ActionCall}></Route>
+</Router>,
+document.getElementById('app-container')    
+)
