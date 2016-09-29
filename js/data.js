@@ -1,3 +1,4 @@
+
 var listings = JSON.parse(localStorage.getItem('listings')) || {};
 var todos = JSON.parse(localStorage.getItem('todos')) || [];
 if (Object.keys(listings).length == 0) {
@@ -12,6 +13,15 @@ if (todos.length == 0) {
   todos.push({"id": 1, listingId: 1234, call: false, visit: false, pay: false});
   todos.push({"id": 2, listingId: 1235, call: true, visit: false, pay: false});
   todos.push({"id": 3, listingId: 1236, call: true, visit: true, pay: false});
+}
+
+function getTodoObject(todoId)
+{
+  for (let i in todos) {
+    if (todos[i].id== todoId) {
+      return todos[i];
+    }
+  }
 }
 
 var todosText = {
