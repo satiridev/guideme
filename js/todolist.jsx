@@ -15,16 +15,19 @@ var ListingComponent = React.createClass({
 
 var ListingsListComponent = React.createClass({
   render: function() {
+    
+    /*
     var rows = this.props.todos.filter(function(todo) {
       return !todo.done;
     }).map(function(todo) {
     //console.log(todo);
       return (<ListingComponent key={todo.id} todo={todo}></ListingComponent>);
     });
+    */
     return (
       <div className="active-todos">
         <h2>Active</h2>
-        <ul>{rows}</ul>
+        <ul>A</ul>
       </div>
     );
   }

@@ -2,38 +2,13 @@ var  ActionCall = React.createClass({
   render: function() {
     return (
       <div className="action-call" id="actioncall">
-        <div className="jumbotron jumbotron-icon">  {/* ----- header  ----- */}
-            <div className="container text-center">
-                <h1>
-                    <i className="fa fa-phone-square fa-5 text-primary" aria-hidden="true"></i>
-                    &nbsp;Call the agent
-                </h1>
-            </div>
-            <div className="container text-center">
-                <div className="row">
-                    <div className="col-xs-2">&nbsp;</div>
-                    <div className="col-xs-8">
-                        Calling is the fastest way to deal with agents.
-                        By getting the faster response, your property will come closer.
-                    </div>
-                    <div className="col-xs-2">&nbsp;</div>
-                </div>
-                <div className="row padding-top-20">
-                    <div className="col-xs-2">&nbsp;</div>
-                    <div className="col-xs-8">
-                        <span className="text-primary">Your property at a Glance</span>
-                    </div>
-                    <div className="col-xs-2">&nbsp;</div>                
-                    <div className="col-xs-2">&nbsp;</div>
-                    <div className="col-xs-8">
-                        <strong>A nice condo located near bedok</strong><br/>
-                        Jl. Bedok #23, Ayer Rajah 178890
-                    </div>
-                    <div className="col-xs-2">&nbsp;</div>
-                </div>
 
-            </div>
-        </div>                                     {/* ----- end header  ----- */}
+        <HeaderCall 
+            icon="fa-phone-square" 
+            text="Call the Agent"
+            description="Calling is the fastest way to deal with agents.By getting the faster response, your property will come closer."
+            todoId="1"
+        ></HeaderCall>
 
                                                    {/* ----- agent info or content  ----- */} 
         <div className="container min-height-200">
