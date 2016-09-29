@@ -5,9 +5,23 @@ var ListingComponent = React.createClass({
     //console.log(listings);
     //console.log(todo.listingId);
     var listing = listings[todo.listingId];
+
+    var completeTodos = 0;
+    for (var i=0; i<todosText.length; i++) {
+        var todoText = todosText[i].name;
+        if (todoText && true === getTodoObject(todo.id)[todoText]) {
+            completeTodos++;
+        }
+    }
     return (
       <li>
-        <span><Link to={"start/" + todo.id} todoId={todo.id}>{listing.name}</Link></span>
+        <div className="col-sm-6">
+            <span><Link to={"start/" + todo.id} todoId={todo.id}>{listing.name}</Link></span>
+        </div>
+        <div className="col-sm-4">
+            <ProgressBar valuenow={completeTodos} />
+        </div>
+        <div className="col-sm-2"></div>
       </li>
     );
   }
