@@ -1,5 +1,6 @@
 var  ActionCall = React.createClass({
   render: function() {
+    let todoId = this.props.params.todoId;
     return (
       <div className="action-call" id="actioncall">
 
@@ -7,7 +8,7 @@ var  ActionCall = React.createClass({
             icon="fa-phone-square" 
             text="Call the Agent"
             description="Calling is the fastest way to deal with agents.By getting the faster response, your property will come closer."
-            todoId="1"
+            todoId={todoId}
         ></HeaderCall>
 
                                                    {/* ----- agent info or content  ----- */} 

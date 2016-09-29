@@ -5,7 +5,7 @@ let StartTodoItem = React.createClass({
 
     let icon = (true === getTodoObject(this.props.todoId)[key]) ? 'fa fa-check-square-o' : 'fa fa-square-o';
 
-    return (<li><Link to={key}><i className={icon} aria-hidden="true"></i> {text}</Link></li>);
+    return (<li><Link to={key + "/" +  this.props.todoId}><i className={icon} aria-hidden="true"></i> {text}</Link></li>);
   }
 });
 
