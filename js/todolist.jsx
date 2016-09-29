@@ -22,9 +22,9 @@ var ListingsListComponent = React.createClass({
       return (<ListingComponent key={todo.id} todo={todo}></ListingComponent>);
     });
     return (
-      <div className="active-todos">
+      <div className="active-todos text-center">
         <h2>Active</h2>
-        <ul>{rows}</ul>
+        <ul className="list-no-style">{rows}</ul>
       </div>
     );
   }

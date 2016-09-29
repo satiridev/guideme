@@ -1,35 +1,40 @@
-var StartTodoItem = React.createClass({
+let StartTodoItem = React.createClass({
   render: function() {
-    var key = this.props.text.name;
-    var text = this.props.text.text;
+    let key = this.props.text.name;
+    let text = this.props.text.text;
 
-    var icon = (true === getTodoObject(this.props.todoId)[key]) ? 'fa fa-check-square-o' : 'fa fa-square-o';
+    let icon = (true === getTodoObject(this.props.todoId)[key]) ? 'fa fa-check-square-o' : 'fa fa-square-o';
 
     return (<li><Link to={key}><i className={icon} aria-hidden="true"></i> {text}</Link></li>);
   }
 });
 
-var StartTodoList = React.createClass({
+let StartTodoList = React.createClass({
   render: function() {
-    var todoText = this.props.todosText;
-    var todoId = this.props.todoId;
-    var rows = todoText.map(function(text) {
+    let todoText = this.props.todosText;
+    let todoId = this.props.todoId;
+    let rows = todoText.map(function(text) {
       return (<StartTodoItem text={text} todoId={todoId}/>);
     });
     return (
-      <div className="active-todos">
-        <ul>{rows}</ul>
+      <div className="text-center">
+        <ul className="list-no-style">{rows}</ul>
       </div>
     );
   }
 });
 
-var Start = React.createClass({
+let Start = React.createClass({
   render: function() {
-    var todoId = this.props.params.todoId;
+    let todoId = this.props.params.todoId;
     return (
       <div>
-        <h1>Start </h1>
+        <HeaderCall
+            icon="fa-star"
+            text="Start your progress"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
+            todoId={todoId}
+        ></HeaderCall>
         <StartTodoList todosText={todosText} todoId={todoId}/>
       </div>
     );
