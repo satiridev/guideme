@@ -1,5 +1,5 @@
 var listings = JSON.parse(localStorage.getItem('listings')) || {};
-var todos = JSON.parse(localStorage.getItem('todos')) || {};
+var todos = JSON.parse(localStorage.getItem('todos')) || [];
 if (Object.keys(listings).length == 0) {
   listings = {
     "1234": {"id": 1234, "name": "listing name 1234", "agentName": "agent name of 1234", "phone": "081-234-5678"},
@@ -8,12 +8,10 @@ if (Object.keys(listings).length == 0) {
   };
 }
 
-if (Object.keys(todos).length == 0) {
-  todos = {
-    "1": {"id": 1, listingId: 1234, call: false, visit: false, pay: false},
-    "2": {"id": 2, listingId: 1235, call: true, visit: false, pay: false},
-    "3": {"id": 3, listingId: 1236, call: true, visit: true, pay: false}
-  }
+if (todos.length == 0) {
+  todos.push({"id": 1, listingId: 1234, call: false, visit: false, pay: false});
+  todos.push({"id": 2, listingId: 1235, call: true, visit: false, pay: false});
+  todos.push({"id": 3, listingId: 1236, call: true, visit: true, pay: false});
 }
 
 var todosText = {
