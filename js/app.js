@@ -5,17 +5,6 @@ var { Router,
       IndexLink,
       Link } = ReactRouter;
 
-var  ActionCall = React.createClass({
-  render: function() {
-    return (
-      <div className="action-call">
-        <h2>Action Call</h2>
-        <ul></ul>
-      </div>
-    );
-  }
-});
-
 var App = React.createClass({
   render: function() {
     return (
@@ -36,6 +25,7 @@ React.render(
     <Route path="/" component={App}></Route>
     <Route path="start/:todoId" component={Start} />
     <Route path="actioncall" component={ActionCall}></Route>
+    <Route path="actionvisit" component={ActionCall}></Route>
 </Router>,
 document.getElementById('app-container')    
 );
