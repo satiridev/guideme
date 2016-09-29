@@ -26,7 +26,7 @@ React.render(
 <Router>
     <Route path="/" component={App}></Route>
     <Route path="start/:todoId" component={Start} />
-    <Route path="call" component={ActionCall}></Route>
+    <Route path="call/:todoId" component={ActionCall}></Route>
     <Route path="visit" component={ActionVisit}></Route>
 </Router>,
 document.getElementById('app-container')
