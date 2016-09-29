@@ -13,7 +13,6 @@ var App = React.createClass({
             icon="fa-home"
             text="Home"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
-            todoId="1"
         ></HeaderCall>
         <ListingsListComponent todos={todos}/>
       </div>
