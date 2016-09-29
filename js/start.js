@@ -1,11 +1,12 @@
+var currentTodoId = '2';
+
 var StartTodoItem = React.createClass({
   render: function() {
+    var key = this.props.text;
     var text = todosText[this.props.text];
-    //if (listings['id']) {
+    var icon = (true === todos[currentTodoId][key]) ? 'fa fa-check-square-o' : 'fa fa-square-o';
 
-    //}
-    console.log(listings);
-    return (<li><i className="fa fa-square-o" aria-hidden="true"></i> {text}</li>);
+    return (<li><Link to={key}><i className={icon} aria-hidden="true"></i> {text}</Link></li>);
   }
 });
 
