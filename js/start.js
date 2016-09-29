@@ -1,10 +1,9 @@
-var currentTodoId = '2';
-
 var StartTodoItem = React.createClass({
   render: function() {
-    var key = this.props.text;
-    var text = todosText[this.props.text];
-    var icon = (true === todos[currentTodoId][key]) ? 'fa fa-check-square-o' : 'fa fa-square-o';
+    var key = this.props.text.name;
+    var text = this.props.text.text;
+
+    var icon = (true === getTodoObject(this.props.todoId)[key]) ? 'fa fa-check-square-o' : 'fa fa-square-o';
 
     return (<li><Link to={key}><i className={icon} aria-hidden="true"></i> {text}</Link></li>);
   }
@@ -13,8 +12,9 @@ var StartTodoItem = React.createClass({
 var StartTodoList = React.createClass({
   render: function() {
     var todoText = this.props.todosText;
-    var rows = Object.keys(todoText).map(function(text) {
-      return (<StartTodoItem text={text} />);
+    var todoId = this.props.todoId;
+    var rows = todoText.map(function(text) {
+      return (<StartTodoItem text={text} todoId={todoId}/>);
     });
     return (
       <div className="active-todos">
@@ -30,7 +30,7 @@ var Start = React.createClass({
     return (
       <div>
         <h1>Start </h1>
-        <StartTodoList todosText={todosText}/>
+        <StartTodoList todosText={todosText} todoId={todoId}/>
       </div>
     );
   }
