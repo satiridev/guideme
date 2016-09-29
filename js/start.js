@@ -26,9 +26,10 @@ var StartTodoList = React.createClass({
 
 var Start = React.createClass({
   render: function() {
+    var todoId = this.props.params.todoId;
     return (
       <div>
-        <h1>Start</h1>
+        <h1>Start </h1>
         <StartTodoList todosText={todosText}/>
       </div>
     );

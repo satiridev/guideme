@@ -34,7 +34,7 @@ var App = React.createClass({
 React.render(
 <Router>
     <Route path="/" component={App}></Route>
-    <Route path="start" component={Start}></Route>
+    <Route path="start/:todoId" component={Start} />
     <Route path="actioncall" component={ActionCall}></Route>
 </Router>,
 document.getElementById('app-container')    
