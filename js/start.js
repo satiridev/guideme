@@ -4,7 +4,7 @@ var StartTodoItem = React.createClass({
     //if (listings['id']) {
 
     //}
-    console.log(listings);
+    //console.log(listings);
     return (<li><i className="fa fa-square-o" aria-hidden="true"></i> {text}</li>);
   }
 });
@@ -25,9 +25,10 @@ var StartTodoList = React.createClass({
 
 var Start = React.createClass({
   render: function() {
+    var todoId = this.props.params.todoId;
     return (
       <div>
-        <h1>Start</h1>
+        <h1>Start </h1>
         <StartTodoList todosText={todosText}/>
       </div>
     );
