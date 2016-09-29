@@ -40,7 +40,7 @@ function getTodoObject(todoId)
 }
 
 var todosText = [
-  {name: "cal", text: 'Call The Agent', "step": 1},
+  {name: "call", text: 'Call The Agent', "step": 1},
   {name: "visit", text: 'Visit the Property', "step": 2},
   {name: "singContact", text: "Sign The Contract", "step": 3},
   {name: "pay", text: "Pay the Collateral", "step": 4}
