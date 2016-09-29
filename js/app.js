@@ -1,3 +1,4 @@
+/*
 var todos  = [{
   id: '1',
   name: 'Call The Agent',
@@ -23,6 +24,7 @@ var todos  = [{
   done: false
 },
 ];
+*/
 
 var { Router,
       Route,
