@@ -24,9 +24,9 @@ function getTodoObject(todoId)
   }
 }
 
-var todosText = {
-  call: 'Call The Agent',
-  visit: 'Visit the Property',
-  singContact: "Sign The Contract",
-  pay: "Pay the Collateral",
-};
+var todosText = [
+  {name: "cal", text: 'Call The Agent'},
+  {name: "visit", text: 'Visit the Property',
+  {name: "singContact", text: "Sign The Contract",
+  {name: "pay", text: "Pay the Collateral"
+];
