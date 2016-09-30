@@ -21,3 +21,8 @@
 .property-image {
     height: 150px;
 }
+.start-list-item{
+    float: none;
+    margin: 0 auto;
+    width: 200px;
+}

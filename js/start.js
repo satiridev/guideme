@@ -5,7 +5,17 @@ let StartTodoItem = React.createClass({
 
     let icon = (true === getTodoObject(this.props.todoId)[key]) ? 'fa fa-check-square-o' : 'fa fa-square-o';
 
-    return (<li><Link to={key + "/" +  this.props.todoId}><i className={icon} aria-hidden="true"></i> {text}</Link></li>);
+    return (
+        <li className="start-list-item">
+            <Link to={key + "/" +  this.props.todoId}>
+                <div>
+                    <div className="col-xs-2 text-right">
+                        <i className={icon} aria-hidden="true"></i>
+                    </div>
+                    <div className="col-xs-10 text-left">{text}</div>
+                </div>
+            </Link>
+        </li>);
   }
 });
 
@@ -20,8 +30,9 @@ let StartTodoList = React.createClass({
     return (
       <div className="text-center">
         <ul className="list-no-style">{rows}</ul>
+        <div className="clearfix"></div>
         <div className="col-sm-4"></div>
-        <div className="col-sm-4">
+        <div className="col-sm-4 padding-top-40">
             <ProgressBar valuenow={completeTodos} />
         </div>
         <div className="col-sm-4"></div>
