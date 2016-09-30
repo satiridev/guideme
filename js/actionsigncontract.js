@@ -1,10 +1,10 @@
 var  ActionSignContract = React.createClass({
+    step: 3,
     action: "signcontract",
     done: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, true);
-        let next = getNextStep(todoId);
-        window.location = "/#/" + next + "/" + todoId;
+        goToNextStep(this.step, todoId);
     },
     later: function() {
         var todoId = this.props.params.todoId;

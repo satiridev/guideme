@@ -62,6 +62,17 @@ function getTodoCompletion(todoId)
     return completeTodos;
 }
 
+function goToNextStep(currentStep, todoId)
+{
+    var next = $.grep(todosText, function(e) {
+      return e.step == currentStep + 1; 
+    });
+
+    if (next[0]) {
+        window.location = "/#/" + next[0].name + "/" + todoId;
+    }
+}
+
 function updateTodo(todoId, action, value)
 {
   var todo = getTodoObject(todoId);
