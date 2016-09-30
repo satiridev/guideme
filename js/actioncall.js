@@ -1,10 +1,13 @@
 var  ActionCall = React.createClass({
     action: "call",
+
     done: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, true);
-        window.location = "/#/start/"+todoId;
+        let next = getNextStep(todoId);
+        window.location = "/#/" + next + "/" + todoId;
     },
+
     later: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, false);

@@ -31,6 +31,13 @@ if (todos.length == 0) {
   todos.push({"id": 3, listingId: 1236, call: true, visit: true, pay: false});
 }
 
+var todosText = [
+  {name: "call", text: 'Call The Agent', "step": 1},
+  {name: "visit", text: 'Visit the Property', "step": 2},
+  {name: "singContact", text: "Sign The Contract", "step": 3},
+  {name: "pay", text: "Pay the Collateral", "step": 4}
+];
+
 function getTodoObject(todoId)
 {
   for (let i in todos) {
@@ -64,9 +71,13 @@ function saveTodos(_todos)
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-var todosText = [
-  {name: "call", text: 'Call The Agent', "step": 1},
-  {name: "visit", text: 'Visit the Property', "step": 2},
-  {name: "singContact", text: "Sign The Contract", "step": 3},
-  {name: "pay", text: "Pay the Collateral", "step": 4}
-];
+function getNextStep(todoId)
+{
+  let todo = getTodoObject(todoId);
+  for (let taskId in todosText) {
+    let name = todosText[taskId].name;
+    if (!todo[name]) {
+      return name;
+    }
+  }
+}
