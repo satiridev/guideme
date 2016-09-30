@@ -3,23 +3,23 @@ var listings = JSON.parse(localStorage.getItem('listings')) || {};
 var todos = JSON.parse(localStorage.getItem('todos')) || [];
 
 if (Object.keys(listings).length == 0) {
-var listings = {
-    "1234": {"id": 1234, 
+  listings = {
+    "1234": {"id": 1234,
              "name": "A Very nice view house at bedok!",
-             "address": "Jl. Bedok #56, Ayer - Singapore 11405", 
-             "agentName": "Cindy PropertyGuru", 
+             "address": "Jl. Bedok #56, Ayer - Singapore 11405",
+             "agentName": "Cindy PropertyGuru",
              "phone": "081-234-5678"
           },
-    "1235": {"id": 1235, 
-            "name": "Nice 2 bedrooms House nearby Russia Embassy", 
+    "1235": {"id": 1235,
+            "name": "Nice 2 bedrooms House nearby Russia Embassy",
             "address": "Crescent Rd. 45, 117788",
             "agentName": "Crescent Rd. 45, 117788",
             "phone": "082-567-9999"
           },
-    "1236": {"id": 1236, 
-            "name": "listing name 1236", 
+    "1236": {"id": 1236,
+            "name": "listing name 1236",
             "address": "Some address",
-            "agentName": "agent name of 1236", 
+            "agentName": "agent name of 1236",
             "phone": "083-765-8989"
           }
   };
@@ -38,6 +38,18 @@ function getTodoObject(todoId)
       return todos[i];
     }
   }
+}
+
+function getTodoCompletion(todoId)
+{
+    let completeTodos = 0;
+    for (let i=0; i<todosText.length; i++) {
+        let todoText = todosText[i].name;
+        if (todoText && true === getTodoObject(todoId)[todoText]) {
+            completeTodos++;
+        }
+    }
+    return completeTodos;
 }
 
 function updateTodo(todoId, action, value)

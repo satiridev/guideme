@@ -3,13 +3,8 @@ var ListingComponent = React.createClass({
     var todo = this.props.todo;
     var listing = listings[todo.listingId];
 
-    var completeTodos = 0;
-    for (var i=0; i<todosText.length; i++) {
-        var todoText = todosText[i].name;
-        if (todoText && true === getTodoObject(todo.id)[todoText]) {
-            completeTodos++;
-        }
-    }
+    var completeTodos = getTodoCompletion(todo.id);
+
     return (
       <li className="row">
         <div className="col-xs-offset-2 col-xs-4 text-left">
