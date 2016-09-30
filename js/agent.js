@@ -2,7 +2,7 @@ var AgentInfo = React.createClass({
     render: function(){
         let property = this.props.property;
         return (
-            <div className="container min-height-200">
+            <div className="container min-height-100">
                 <div className="row">
                     <div className="col-xs-4">
                         &nbsp;
@@ -23,12 +23,12 @@ var AgentInfo = React.createClass({
                             <div className="col-xs-8">
                                 <strong>{property.phone}</strong>
                             </div>
-                        </div>                    
+                        </div>
                     </div>
                     <div className="col-xs-4">
                         &nbsp;
                     </div>
-                </div>    
+                </div>
             </div>
         );
     }

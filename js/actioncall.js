@@ -3,6 +3,9 @@ var  ActionCall = React.createClass({
     action: "call",
 
     done: function(todoId) {
+        let noteKey = this.action + "Note";
+        let noteText = document.getElementById("note").value;
+        updateTodo(todoId, noteKey, noteText)
         updateTodo(todoId, this.action, true);
         goToNextStep(this.step, todoId);
     },
@@ -13,6 +16,10 @@ var  ActionCall = React.createClass({
     },
 
     next: function(todoId) {
+        let noteKey = this.action + "Note";
+        let noteText = document.getElementById("note").value;
+        updateTodo(todoId, noteKey, noteText)
+        updateTodo(todoId, this.action, true);
         goToNextStep(this.step, todoId);
     },
 
@@ -23,6 +30,7 @@ var  ActionCall = React.createClass({
   render: function() {
     let todoId = this.props.params.todoId;
     let todo = getTodoObject(todoId);
+    let note = getStepNote(todoId, this.action);
 
     if (todoId !== undefined) {
         var currentTodo = getTodoObject(todoId);
@@ -39,7 +47,8 @@ var  ActionCall = React.createClass({
             todoId={todoId}
         ></HeaderCall>
 
-        <AgentInfo property={property} />
+        <AgentInfo property={property}></AgentInfo>
+        <ActionNote note={note}></ActionNote>
 
         <ButtonControl
             done={todo[this.action]}

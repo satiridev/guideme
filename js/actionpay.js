@@ -2,6 +2,9 @@ var  ActionPay = React.createClass({
     step: 4,
     action: "pay",
     done: function(todoId) {
+        let noteKey = this.action + "Note";
+        let noteText = document.getElementById("note").value;
+        updateTodo(todoId, noteKey, noteText)
         updateTodo(todoId, this.action, true);
         window.location = "/#/congratulation/"+todoId;
     },
@@ -12,6 +15,9 @@ var  ActionPay = React.createClass({
     },
 
     next: function(todoId) {
+        let noteKey = this.action + "Note";
+        let noteText = document.getElementById("note").value;
+        updateTodo(todoId, noteKey, noteText)
         window.location = "/#/congratulation/"+todoId;
     },
 
@@ -22,6 +28,8 @@ var  ActionPay = React.createClass({
   render: function() {
     let todoId = this.props.params.todoId;
     let todo = getTodoObject(todoId);
+    let note = getStepNote(todoId, this.action);
+
     if (todoId !== undefined) {
         var currentTodo = getTodoObject(todoId);
         var property = listings[currentTodo.listingId];
@@ -38,6 +46,7 @@ var  ActionPay = React.createClass({
         ></HeaderCall>
 
         <AgentInfo property={property} />
+        <ActionNote note={note}></ActionNote>
 
         <ButtonControl
             done={todo[this.action]}

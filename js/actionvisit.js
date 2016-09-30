@@ -2,6 +2,9 @@ var  ActionVisit= React.createClass({
     step: 2,
     action: "visit",
     done: function(todoId) {
+        let noteKey = this.action + "Note";
+        let noteText = document.getElementById("note").value;
+        updateTodo(todoId, noteKey, noteText)
         updateTodo(todoId, this.action, true);
         goToNextStep(this.step, todoId);
     },
@@ -12,6 +15,9 @@ var  ActionVisit= React.createClass({
     },
 
     next: function(todoId) {
+        let noteKey = this.action + "Note";
+        let noteText = document.getElementById("note").value;
+        updateTodo(todoId, noteKey, noteText)
         goToNextStep(this.step, todoId);
     },
 
@@ -20,9 +26,9 @@ var  ActionVisit= React.createClass({
     },
 
   render: function() {
-
     let todoId = this.props.params.todoId;
     let todo = getTodoObject(todoId);
+    let note = getStepNote(todoId, this.action);
 
     if (todoId !== undefined) {
         var currentTodo = getTodoObject(todoId);
@@ -40,6 +46,7 @@ var  ActionVisit= React.createClass({
         ></HeaderCall>
         
         <AgentInfo property={property} />
+        <ActionNote note={note}></ActionNote>
 
         <ButtonControl
             done={todo[this.action]}

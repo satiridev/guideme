@@ -32,9 +32,30 @@ if (Object.keys(listings).length == 0) {
 }
 
 if (todos.length == 0) {
-  todos.push({"id": 1, listingId: 1234, call: false, visit: false, pay: false});
-  todos.push({"id": 2, listingId: 1235, call: true, visit: false, pay: false});
-  todos.push({"id": 3, listingId: 1236, call: true, visit: true, pay: false});
+  todos.push({
+    "id": 1,
+    listingId: 1234,
+    call: false,
+    visit: false,
+    pay: false
+  });
+  todos.push({
+    "id": 2,
+    listingId: 1235,
+    call: true,
+    callNote: "Agent said it sold ...",
+    visit: false,
+    pay: false
+  });
+  todos.push({
+    "id": 3,
+    listingId: 1236,
+    call: true,
+    callNote: "Agent said can visit in next Monday ...",
+    visit: true,
+    visitNote: "Nice property new MRT ...",
+    pay: false
+  });
 }
 
 var todosText = [
@@ -87,6 +108,18 @@ function goToPrevStep(currentStep, todoId)
     }
 }
 
+function getStepNote(todoId, action)
+{
+  let todo = getTodoObject(todoId);
+  let noteKey = action + "Note";
+  let note = "";
+  if (todo[noteKey] !== undefined) {
+    note = todo[noteKey];
+  }
+
+  return note;
+}
+
 function updateTodo(todoId, action, value)
 {
   var todo = getTodoObject(todoId);
@@ -109,3 +142,32 @@ function getNextStep(todoId)
     }
   }
 }
+
+var ActionNote = React.createClass({
+    render: function(){
+        let todo = this.props.todo;
+        let note = this.props.note;
+
+        return (
+            <div className="container padding-top-20">
+                <div className="row">
+                    <div className="col-xs-4">
+                        &nbsp;
+                    </div>
+                    <div className="col-xs-4">
+                        <div className="row">
+                            <div className="col-xs-12">
+                              <textarea id="note" rows="4" className="col-xs-12">
+                              {note}
+                              </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-xs-4">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        );
+    }
+});
