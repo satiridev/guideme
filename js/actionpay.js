@@ -1,5 +1,5 @@
-var  ActionVisit= React.createClass({
-    action: "visit",
+var  ActionPay = React.createClass({
+    action: "pay",
     done: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, true);
@@ -12,23 +12,22 @@ var  ActionVisit= React.createClass({
     },
 
   render: function() {
-
     let todoId = this.props.params.todoId;
     if (todoId !== undefined) {
         var currentTodo = getTodoObject(todoId);
         var property = listings[currentTodo.listingId];
-    }
-      
+    }    
+
     return (
-      <div className="action-call" id="actioncall">
+      <div className="action-pay" id="actionpay">
 
         <HeaderCall 
-            icon="fa-map-marker" 
-            text="Visit the property"
-            description="Visiting the property will make sure all the information that provided by the agent is  fit to your need. Do not take rush to decide your property in one visit."
+            icon="fa-credit-card" 
+            text="Pay the collateral"
+            description="Always make sure you have the receipt when doing a payment. Just like apples, not all agents can be trusted."
             todoId={todoId}
         ></HeaderCall>
-        
+
         <AgentInfo property={property} />
 
         <div className="container padding-top-60">

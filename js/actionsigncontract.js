@@ -1,5 +1,5 @@
-var  ActionVisit= React.createClass({
-    action: "visit",
+var  ActionSignContract = React.createClass({
+    action: "signcontract",
     done: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, true);
@@ -12,23 +12,22 @@ var  ActionVisit= React.createClass({
     },
 
   render: function() {
-
     let todoId = this.props.params.todoId;
     if (todoId !== undefined) {
         var currentTodo = getTodoObject(todoId);
         var property = listings[currentTodo.listingId];
     }
-      
+
     return (
-      <div className="action-call" id="actioncall">
+      <div className="action-sign-contract" id="actionsigncontract">
 
         <HeaderCall 
-            icon="fa-map-marker" 
-            text="Visit the property"
-            description="Visiting the property will make sure all the information that provided by the agent is  fit to your need. Do not take rush to decide your property in one visit."
+            icon="fa-phone-square" 
+            text="Sign the contract"
+            description="This is the last step. You should be able to move to your place once this step is done. Do not forget to prepare all the luggages and all transportation fees."
             todoId={todoId}
         ></HeaderCall>
-        
+
         <AgentInfo property={property} />
 
         <div className="container padding-top-60">

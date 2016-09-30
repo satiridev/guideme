@@ -13,6 +13,10 @@ var  ActionCall = React.createClass({
 
   render: function() {
     let todoId = this.props.params.todoId;
+    if (todoId !== undefined) {
+        var currentTodo = getTodoObject(todoId);
+        var property = listings[currentTodo.listingId];
+    }
 
     return (
       <div className="action-call" id="actioncall">
@@ -24,36 +28,7 @@ var  ActionCall = React.createClass({
             todoId={todoId}
         ></HeaderCall>
 
-        {/* ----- agent info or content  ----- */} 
-        <div className="container min-height-200">
-            <div className="row">
-                <div className="col-xs-4">
-                    &nbsp;
-                </div>
-                <div className="col-xs-4">
-                    <div className="row">
-                        <div className="col-xs-4">
-                            Agent
-                        </div>
-                        <div className="col-xs-8">
-                            <strong>Cyndi PropertyGuru</strong>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-xs-4">
-                            Phone 
-                        </div>
-                        <div className="col-xs-8">
-                            <strong>0816 7788 89990</strong>
-                        </div>
-                    </div>                    
-                </div>
-                <div className="col-xs-4">
-                    &nbsp;
-                </div>
-            </div>    
-        </div>
-        {/* ----- agent info or content  ----- */} 
+        <AgentInfo property={property} />
 
         <div className="container padding-top-60">
         <div className="row">
