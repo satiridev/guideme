@@ -13,12 +13,18 @@ let StartTodoList = React.createClass({
   render: function() {
     let todoText = this.props.todosText;
     let todoId = this.props.todoId;
+    let completeTodos = getTodoCompletion(todoId);
     let rows = todoText.map(function(text) {
       return (<StartTodoItem text={text} todoId={todoId}/>);
     });
     return (
       <div className="text-center">
         <ul className="list-no-style">{rows}</ul>
+        <div className="col-sm-4"></div>
+        <div className="col-sm-4">
+            <ProgressBar valuenow={completeTodos} />
+        </div>
+        <div className="col-sm-4"></div>
       </div>
     );
   }

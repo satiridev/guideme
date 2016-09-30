@@ -6,13 +6,8 @@ var ListingComponent = React.createClass({
     //console.log(todo.listingId);
     var listing = listings[todo.listingId];
 
-    var completeTodos = 0;
-    for (var i=0; i<todosText.length; i++) {
-        var todoText = todosText[i].name;
-        if (todoText && true === getTodoObject(todo.id)[todoText]) {
-            completeTodos++;
-        }
-    }
+    var completeTodos = getTodoCompletion(todo.id);
+
     return (
       <li>
         <div className="col-sm-6">
