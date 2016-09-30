@@ -1,20 +1,27 @@
 var  ActionPay = React.createClass({
     step: 4,
     action: "pay",
-    done: function() {
-        var todoId = this.props.params.todoId;
+    done: function(todoId) {
         updateTodo(todoId, this.action, true);
-        //goToNextStep(this.step, todoId);
         window.location = "/#/congratulation/"+todoId;
     },
-    later: function() {
-        var todoId = this.props.params.todoId;
+
+    later: function(todoId) {
         updateTodo(todoId, this.action, false);
         window.location = "/#/start/"+todoId;
     },
 
+    next: function(todoId) {
+        window.location = "/#/congratulation/"+todoId;
+    },
+
+    prev: function(todoId) {
+        goToPrevStep(this.step, todoId);
+    },
+
   render: function() {
     let todoId = this.props.params.todoId;
+    let todo = getTodoObject(todoId);
     if (todoId !== undefined) {
         var currentTodo = getTodoObject(todoId);
         var property = listings[currentTodo.listingId];
@@ -32,19 +39,15 @@ var  ActionPay = React.createClass({
 
         <AgentInfo property={property} />
 
-        <div className="container padding-top-20">
-        <div className="row">
-            <div className="col-xs-3">&nbsp;</div>
-            <div className="col-xs-3 text-center">
-                <button onClick={this.later} type="button" className="btn btn-primary btn-lg btn-block" aria-label="Left Align">Do it later</button>
-            </div>
-            <div className="col-xs-3 text-center">
-                <button onClick={this.done} ype="button" className="btn btn-success btn-lg btn-block" aria-label="Left Align">Mark as done</button>
-            </div>
-            <div className="col-xs-3">&nbsp;</div>
+        <ButtonControl
+            done={todo[this.action]}
+            onLater= {this.later}
+            onDone={this.done}
+            onNext={this.next}
+            onPrev={this.prev}
+            todoId={todoId}
+        ></ButtonControl>
         </div>
-        </div>
-      </div>
     );
   }
 });
