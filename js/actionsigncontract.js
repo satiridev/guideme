@@ -2,9 +2,12 @@ var  ActionSignContract = React.createClass({
     step: 3,
     action: "signcontract",
     done: function(todoId) {
+        let noteKey = this.action + "Note";
+        let noteText = document.getElementById("note").value;
+        updateTodo(todoId, noteKey, noteText)
         updateTodo(todoId, this.action, true);
         goToNextStep(this.step, todoId);
-    },
+   },
 
     later: function(todoId) {
         updateTodo(todoId, this.action, false);
@@ -12,6 +15,9 @@ var  ActionSignContract = React.createClass({
     },
 
     next: function(todoId) {
+        let noteKey = this.action + "Note";
+        let noteText = document.getElementById("note").value;
+        updateTodo(todoId, noteKey, noteText)
         goToNextStep(this.step, todoId);
     },
 
@@ -22,6 +28,8 @@ var  ActionSignContract = React.createClass({
   render: function() {
     let todoId = this.props.params.todoId;
     let todo = getTodoObject(todoId);
+    let note = getStepNote(todoId, this.action);
+
     if (todoId !== undefined) {
         var currentTodo = getTodoObject(todoId);
         var property = listings[currentTodo.listingId];
@@ -38,6 +46,7 @@ var  ActionSignContract = React.createClass({
         ></HeaderCall>
 
         <AgentInfo property={property} />
+        <ActionNote note={note}></ActionNote>
 
         <ButtonControl
             done={todo[this.action]}
