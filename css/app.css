@@ -17,3 +17,7 @@
 .list-no-style {
     list-style: none;
 }
+
+.property-image {
+    height: 150px;
+}
