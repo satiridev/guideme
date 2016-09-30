@@ -34,7 +34,7 @@ var  ActionCall = React.createClass({
 
         <AgentInfo property={property} />
 
-        <div className="container padding-top-60">
+        <div className="container padding-top-20">
         <div className="row">
             <div className="col-xs-3">&nbsp;</div>
             <div className="col-xs-3 text-center">
