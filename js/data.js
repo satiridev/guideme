@@ -155,13 +155,16 @@ var ActionNote = React.createClass({
                         &nbsp;
                     </div>
                     <div className="col-xs-4">
-                        <div className="row">
-                            <div className="col-xs-12">
+                         <div className="row">
+                         <div className="col-xs-4">
+                         Notes
+                         </div>
+                         <div className="col-xs-8">
                               <textarea id="note" rows="4" className="col-xs-12">
                               {note}
                               </textarea>
-                            </div>
-                        </div>
+                         </div>
+                         </div>
                     </div>
                     <div className="col-xs-4">
                         &nbsp;
