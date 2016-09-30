@@ -54,7 +54,8 @@ let Start = React.createClass({
   render: function() {
     let todoId = this.props.params.todoId;
     return (
-      <div>
+        <ReactTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500} transitionLeaveTimeout={300}>
+      <div key="2">
         <HeaderCall
             icon="fa-star"
             text="Start your progress"
@@ -76,6 +77,7 @@ let Start = React.createClass({
         </div>  
         
       </div>
+      </ReactTransitionGroup>
     );
   }
 });
