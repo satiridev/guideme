@@ -1,9 +1,15 @@
 
 var listings = JSON.parse(localStorage.getItem('listings')) || {};
 var todos = JSON.parse(localStorage.getItem('todos')) || [];
+
 if (Object.keys(listings).length == 0) {
+<<<<<<< HEAD
   listings = {
     "1234": {"id": 1234,
+=======
+var listings = {
+    "1234": {"id": 1234,
+>>>>>>> 05c9fa060c46ee0cb187093d29278bab217a6629
              "name": "A Very nice view house at bedok!",
              "address": "Jl. Bedok #56, Ayer - Singapore 11405",
              "agentName": "Cindy PropertyGuru",
@@ -49,6 +55,18 @@ function getTodoCompletion(todoId)
         }
     }
     return completeTodos;
+}
+
+function updateTodo(todoId, action, value)
+{
+  var todo = getTodoObject(todoId);
+  todo[action] = value;
+  saveTodos();
+}
+
+function saveTodos(_todos)
+{
+  localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 var todosText = [

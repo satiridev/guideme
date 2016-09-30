@@ -1,5 +1,19 @@
 var  ActionCall = React.createClass({
+    action: "call",
+    done: function() {
+        var todoId = this.props.params.todoId;
+        updateTodo(todoId, this.action, true);
+        window.location = "/#/start/"+todoId;
+    },
+    later: function() {
+        var todoId = this.props.params.todoId;
+        updateTodo(todoId, this.action, false);
+        window.location = "/#/start/"+todoId;
+    },
+
   render: function() {
+    let todoId = this.props.params.todoId;
+
     return (
       <div className="action-call" id="actioncall">
 
@@ -7,10 +21,10 @@ var  ActionCall = React.createClass({
             icon="fa-phone-square" 
             text="Call the Agent"
             description="Calling is the fastest way to deal with agents.By getting the faster response, your property will come closer."
-            todoId="1"
+            todoId={todoId}
         ></HeaderCall>
 
-                                                   {/* ----- agent info or content  ----- */} 
+        {/* ----- agent info or content  ----- */} 
         <div className="container min-height-200">
             <div className="row">
                 <div className="col-xs-4">
@@ -38,17 +52,17 @@ var  ActionCall = React.createClass({
                     &nbsp;
                 </div>
             </div>    
-        </div>                                      {/* ----- agent info or content  ----- */} 
-
+        </div>
+        {/* ----- agent info or content  ----- */} 
 
         <div className="container padding-top-60">
         <div className="row">
             <div className="col-xs-3">&nbsp;</div>
             <div className="col-xs-3 text-center">
-                <button type="button" className="btn btn-primary btn-lg btn-block" aria-label="Left Align">Do it later</button>
+                <button onClick={this.later} type="button" className="btn btn-primary btn-lg btn-block" aria-label="Left Align">Do it later</button>
             </div>
             <div className="col-xs-3 text-center">
-                <button ype="button" className="btn btn-success btn-lg btn-block" aria-label="Left Align">Mark as done</button>
+                <button onClick={this.done} ype="button" className="btn btn-success btn-lg btn-block" aria-label="Left Align">Mark as done</button>
             </div>
             <div className="col-xs-3">&nbsp;</div>
         </div>
