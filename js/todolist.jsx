@@ -22,23 +22,16 @@ var ListingComponent = React.createClass({
 
 var ListingsListComponent = React.createClass({
   render: function() {
-    var rows = todos.filter(function(todo) {
+    var rows = this.props.todos.filter(function(todo) {
       return !todo.done;
     }).map(function(todo) {
 
       return (<ListingComponent key={todo.id} todo={todo}></ListingComponent>);
     });
     return (
-      <div>
-        <HeaderCall
-            icon="fa-home"
-            text="Home"
-            description="Here are your favorites home. Follow along the guides to get your dream home."
-        ></HeaderCall>
-        <div className="active-todos text-center">
-          <h2>My Favorite listing</h2>
-          <ul className="list-no-style padding-top-20">{rows}</ul>
-        </div>
+      <div className="active-todos text-center">
+        <h2>My favorite listings</h2>
+        <ul className="list-no-style">{rows}</ul>
       </div>
     );
   }
