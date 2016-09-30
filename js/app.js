@@ -11,7 +11,6 @@ var ReactTransitionGroup = React.addons.CSSTransitionGroup;
 
 var App = React.createClass({
   render: function() {
-    console.log('this.location.pathname');
     return (
         <ReactTransitionGroup component="div" transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
             {React.cloneElement(this.props.children, {
