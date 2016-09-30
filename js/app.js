@@ -29,6 +29,7 @@ React.render(
     <Route path="visit/:todoId" component={ActionVisit}></Route>
     <Route path="pay/:todoId" component={ActionPay}></Route>
     <Route path="signcontract/:todoId" component={ActionSignContract}></Route>
+    <Route path="congratulation/:todoId" component={Congratulation}></Route>
 </Router>,
 document.getElementById('app-container')
 );

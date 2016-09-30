@@ -1,11 +1,13 @@
 var  ActionSignContract = React.createClass({
     step: 3,
     action: "signcontract",
+    
     done: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, true);
         goToNextStep(this.step, todoId);
     },
+
     later: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, false);
@@ -38,7 +40,7 @@ var  ActionSignContract = React.createClass({
                 <button onClick={this.later} type="button" className="btn btn-primary btn-lg btn-block" aria-label="Left Align">Do it later</button>
             </div>
             <div className="col-xs-3 text-center">
-                <button onClick={this.done} ype="button" className="btn btn-success btn-lg btn-block" aria-label="Left Align">Mark as done</button>
+                <button onClick={this.done} type="button" className="btn btn-success btn-lg btn-block" aria-label="Left Align">Mark as done</button>
             </div>
             <div className="col-xs-3">&nbsp;</div>
         </div>
