@@ -64,7 +64,10 @@ function getTodoCompletion(todoId)
 
 function goToNextStep(currentStep, todoId)
 {
-    var next = $.grep(todosText, function(e){ return e.step == currentStep + 1; });
+    var next = $.grep(todosText, function(e) {
+      return e.step == currentStep + 1; 
+    });
+
     if (next[0]) {
         window.location = "/#/" + next[0].name + "/" + todoId;
     }
