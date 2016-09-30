@@ -38,5 +38,10 @@
 .start-list-item{
     float: none;
     margin: 0 auto;
-    width: 200px;
+    clear: both;
+    font-size: 18px;
+}
+
+.action-start-task-checkbox {
+    max-width: 20px;
 }

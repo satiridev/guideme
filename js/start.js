@@ -11,7 +11,7 @@ let StartTodoItem = React.createClass({
         <li className="start-list-item">
             <Link to={key + "/" +  this.props.todoId}>
                 <div>
-                    <div className="col-xs-2 text-right">
+                    <div className="col-xs-2 text-right action-start-task-checkbox">
                         <i className={icon} aria-hidden="true"></i>
                     </div>
                     <div className="col-xs-10 text-left">{text}</div>
@@ -31,13 +31,15 @@ let StartTodoList = React.createClass({
     });
     return (
       <div className="text-center">
-        <ul className="list-no-style">{rows}</ul>
+        <div className="col-xs-4"></div>
+        <div className="col-xs-6"><ul className="list-no-style">{rows}</ul></div>
+        <div className="col-xs-2"></div>
         <div className="clearfix"></div>
-        <div className="col-sm-4"></div>
-        <div className="col-sm-4 padding-top-40">
+        <div className="col-xs-4"></div>
+        <div className="col-xs-4 padding-top-40">
             <ProgressBar valuenow={completeTodos} />
         </div>
-        <div className="col-sm-4"></div>
+        <div className="col-xs-4"></div>
       </div>
     );
   }
