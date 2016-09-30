@@ -19,8 +19,22 @@
 }
 
 .property-image {
-    height: 150px;
+    width: 100%;
 }
+
+.property-img {
+    margin-left: 5%;
+    width: 30%;
+    display: inline-block;
+    float: left;
+}
+
+.property-info {
+    width: 60%;
+    display: inline-block;
+    float: left;
+}
+
 .start-list-item{
     float: none;
     margin: 0 auto;
