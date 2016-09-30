@@ -38,7 +38,7 @@ let Start = React.createClass({
         <HeaderCall
             icon="fa-star"
             text="Start your progress"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
+            description="Your dream home is a few steps away. Please follow the guides to easy your progress. Don't forget to always look to our Guru Tips in each step."
             todoId={todoId}
         ></HeaderCall>
         <StartTodoList todosText={todosText} todoId={todoId}/>

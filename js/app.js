@@ -12,7 +12,7 @@ var App = React.createClass({
         <HeaderCall
             icon="fa-home"
             text="Home"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
+            description="Here are your favorites home. Follow along the guides to get your dream home."
         ></HeaderCall>
         <ListingsListComponent todos={todos}/>
       </div>
@@ -27,8 +27,8 @@ React.render(
     <Route path="start/:todoId" component={Start} />
     <Route path="call/:todoId" component={ActionCall}></Route>
     <Route path="visit/:todoId" component={ActionVisit}></Route>
-    <Route path="signcontract/:todoId" component={ActionSignContract}></Route>
     <Route path="pay/:todoId" component={ActionPay}></Route>
+    <Route path="signcontract/:todoId" component={ActionSignContract}></Route>
 </Router>,
 document.getElementById('app-container')
 );
