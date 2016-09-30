@@ -6,9 +6,10 @@ var ListingComponent = React.createClass({
     var completeTodos = getTodoCompletion(todo.id);
 
     return (
-      <li className="row">
+      <li className="row padding-top-20">
         <div className="col-xs-offset-2 col-xs-4 text-left">
-            <span><Link to={"start/" + todo.id} todoId={todo.id}>{listing.name}</Link></span>
+            <div><Link to={"start/" + todo.id} todoId={todo.id}>{listing.name}</Link></div>
+            <div>{listing.address}</div>
         </div>
         <div className="col-xs-4">
             <ProgressBar valuenow={completeTodos} />
@@ -29,7 +30,7 @@ var ListingsListComponent = React.createClass({
     });
     return (
       <div className="active-todos text-center">
-        <h2>My Favorite listing</h2>
+        <h2>My favorite listings</h2>
         <ul className="list-no-style">{rows}</ul>
       </div>
     );
