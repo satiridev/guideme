@@ -1,4 +1,6 @@
 let StartTodoItem = React.createClass({
+
+
   render: function() {
     let key = this.props.text.name;
     let text = this.props.text.text;
@@ -9,7 +11,7 @@ let StartTodoItem = React.createClass({
         <li className="start-list-item">
             <Link to={key + "/" +  this.props.todoId}>
                 <div>
-                    <div className="col-xs-2 text-right">
+                    <div className="col-xs-2 text-right action-start-task-checkbox">
                         <i className={icon} aria-hidden="true"></i>
                     </div>
                     <div className="col-xs-10 text-left">{text}</div>
@@ -29,19 +31,26 @@ let StartTodoList = React.createClass({
     });
     return (
       <div className="text-center">
-        <ul className="list-no-style">{rows}</ul>
+        <div className="col-xs-4"></div>
+        <div className="col-xs-6"><ul className="list-no-style">{rows}</ul></div>
+        <div className="col-xs-2"></div>
         <div className="clearfix"></div>
-        <div className="col-sm-4"></div>
-        <div className="col-sm-4 padding-top-40">
+        <div className="col-xs-4"></div>
+        <div className="col-xs-4 padding-top-40">
             <ProgressBar valuenow={completeTodos} />
         </div>
-        <div className="col-sm-4"></div>
+        <div className="col-xs-4"></div>
       </div>
     );
   }
 });
 
 let Start = React.createClass({
+  
+  goHome : function() {
+      window.location = "/";
+  },
+
   render: function() {
     let todoId = this.props.params.todoId;
     return (
@@ -54,6 +63,19 @@ let Start = React.createClass({
             todoId={todoId}
         ></HeaderCall>
         <StartTodoList todosText={todosText} todoId={todoId}/>
+
+        <div className="clearfix"></div>
+
+        <div className="row padding-top-40 ">
+            <div className="col-xs-4">&nbsp;</div>
+            <div className="col-xs-4 text-center">
+                <button onClick={this.goHome} type="button" className="btn btn-primary btn-lg btn-block" aria-label="Left Align">Back</button>
+            </div>
+            <div className="col-xs-4 text-center">
+                &nbsp;
+            </div>
+        </div>  
+        
       </div>
       </ReactTransitionGroup>
     );

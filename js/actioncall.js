@@ -2,20 +2,35 @@ var  ActionCall = React.createClass({
     step: 1,
     action: "call",
 
-    done: function() {
-        var todoId = this.props.params.todoId;
+    done: function(todoId) {
+        let noteKey = this.action + "Note";
+        let noteText = document.getElementById("note").value;
+        updateTodo(todoId, noteKey, noteText)
         updateTodo(todoId, this.action, true);
         goToNextStep(this.step, todoId);
     },
 
-    later: function() {
-        var todoId = this.props.params.todoId;
+    later: function(todoId) {
         updateTodo(todoId, this.action, false);
+        window.location = "/#/start/"+todoId;
+    },
+
+    next: function(todoId) {
+        let noteKey = this.action + "Note";
+        let noteText = document.getElementById("note").value;
+        updateTodo(todoId, noteKey, noteText)
+        updateTodo(todoId, this.action, true);
+        goToNextStep(this.step, todoId);
+    },
+
+    prev: function(todoId) {
         window.location = "/#/start/"+todoId;
     },
 
   render: function() {
     let todoId = this.props.params.todoId;
+    let todo = getTodoObject(todoId);
+    let note = getStepNote(todoId, this.action);
 
     if (todoId !== undefined) {
         var currentTodo = getTodoObject(todoId);
@@ -32,20 +47,17 @@ var  ActionCall = React.createClass({
             todoId={todoId}
         ></HeaderCall>
 
-        <AgentInfo property={property} />
+        <AgentInfo property={property}></AgentInfo>
+        <ActionNote note={note}></ActionNote>
 
-        <div className="container padding-top-20">
-        <div className="row">
-            <div className="col-xs-3">&nbsp;</div>
-            <div className="col-xs-3 text-center">
-                <button onClick={this.later} type="button" className="btn btn-primary btn-lg btn-block" aria-label="Left Align">Do it later</button>
-            </div>
-            <div className="col-xs-3 text-center">
-                <button onClick={this.done} ype="button" className="btn btn-success btn-lg btn-block" aria-label="Left Align">Mark as done</button>
-            </div>
-            <div className="col-xs-3">&nbsp;</div>
-        </div>
-        </div>
+        <ButtonControl
+            done={todo[this.action]}
+            onLater= {this.later}
+            onDone={this.done}
+            onNext={this.next}
+            onPrev={this.prev}
+            todoId={todoId}
+        ></ButtonControl>
       </div>
     );
   }
