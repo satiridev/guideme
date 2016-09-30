@@ -1,13 +1,10 @@
-var  ActionCall = React.createClass({
-    action: "call",
-
+var  ActionPay = React.createClass({
+    action: "pay",
     done: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, true);
-        let next = getNextStep(todoId);
-        window.location = "/#/" + next + "/" + todoId;
+        window.location = "/#/start/"+todoId;
     },
-
     later: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, false);
@@ -19,15 +16,15 @@ var  ActionCall = React.createClass({
     if (todoId !== undefined) {
         var currentTodo = getTodoObject(todoId);
         var property = listings[currentTodo.listingId];
-    }
+    }    
 
     return (
-      <div className="action-call" id="actioncall">
+      <div className="action-pay" id="actionpay">
 
         <HeaderCall 
-            icon="fa-phone-square" 
-            text="Call the Agent"
-            description="Calling is the fastest way to deal with agents.By getting the faster response, your property will come closer."
+            icon="fa-credit-card" 
+            text="Pay the collateral"
+            description="Always make sure you have the receipt when doing a payment. Just like apples, not all agents can be trusted."
             todoId={todoId}
         ></HeaderCall>
 

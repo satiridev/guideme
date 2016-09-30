@@ -1,13 +1,10 @@
-var  ActionCall = React.createClass({
-    action: "call",
-
+var  ActionSignContract = React.createClass({
+    action: "signcontract",
     done: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, true);
-        let next = getNextStep(todoId);
-        window.location = "/#/" + next + "/" + todoId;
+        window.location = "/#/start/"+todoId;
     },
-
     later: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, false);
@@ -22,12 +19,12 @@ var  ActionCall = React.createClass({
     }
 
     return (
-      <div className="action-call" id="actioncall">
+      <div className="action-sign-contract" id="actionsigncontract">
 
         <HeaderCall 
             icon="fa-phone-square" 
-            text="Call the Agent"
-            description="Calling is the fastest way to deal with agents.By getting the faster response, your property will come closer."
+            text="Sign the contract"
+            description="This is the last step. You should be able to move to your place once this step is done. Do not forget to prepare all the luggages and all transportation fees."
             todoId={todoId}
         ></HeaderCall>
 
