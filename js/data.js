@@ -1,8 +1,9 @@
 
 var listings = JSON.parse(localStorage.getItem('listings')) || {};
 var todos = JSON.parse(localStorage.getItem('todos')) || [];
+
 if (Object.keys(listings).length == 0) {
-  listings = {
+var listings = {
     "1234": {"id": 1234, 
              "name": "A Very nice view house at bedok!",
              "address": "Jl. Bedok #56, Ayer - Singapore 11405", 
@@ -37,6 +38,18 @@ function getTodoObject(todoId)
       return todos[i];
     }
   }
+}
+
+function updateTodo(todoId, action, value)
+{
+  var todo = getTodoObject(todoId);
+  todo[action] = value;
+  saveTodos();
+}
+
+function saveTodos(_todos)
+{
+  localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 var todosText = [
