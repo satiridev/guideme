@@ -34,7 +34,7 @@ if (todos.length == 0) {
 var todosText = [
   {name: "call", text: 'Call The Agent', "step": 1},
   {name: "visit", text: 'Visit the Property', "step": 2},
-  {name: "singContact", text: "Sign The Contract", "step": 3},
+  {name: "signcontract", text: "Sign The Contract", "step": 3},
   {name: "pay", text: "Pay the Collateral", "step": 4}
 ];
 

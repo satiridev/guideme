@@ -3,7 +3,8 @@ var  ActionSignContract = React.createClass({
     done: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, true);
-        window.location = "/#/start/"+todoId;
+        let next = getNextStep(todoId);
+        window.location = "/#/" + next + "/" + todoId;
     },
     later: function() {
         var todoId = this.props.params.todoId;
@@ -24,7 +25,7 @@ var  ActionSignContract = React.createClass({
         <HeaderCall 
             icon="fa-phone-square" 
             text="Sign the contract"
-            description="This is the last step. You should be able to move to your place once this step is done. Do not forget to prepare all the luggages and all transportation fees."
+            description="Make sure your documents tidely prepared. Documents such as passport and visa is necessary for foreigner, We suggest you to make two bundle of it, with the other one as backup. "
             todoId={todoId}
         ></HeaderCall>
 
