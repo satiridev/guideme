@@ -31,7 +31,7 @@ var  ActionSignContract = React.createClass({
       <div className="action-sign-contract" id="actionsigncontract">
 
         <HeaderCall 
-            icon="fa-phone-square" 
+            icon="fa-wpforms" 
             text="Sign the contract"
             description="Make sure your documents tidely prepared. Documents such as passport and visa is necessary for foreigner, We suggest you to make two bundle of it, with the other one as backup. "
             todoId={todoId}
