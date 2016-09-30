@@ -1,11 +1,11 @@
 var  ActionCall = React.createClass({
+    step: 1,
     action: "call",
 
     done: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, true);
-        let next = getNextStep(todoId);
-        window.location = "/#/" + next + "/" + todoId;
+        goToNextStep(this.step, todoId);
     },
 
     later: function() {
@@ -16,6 +16,7 @@ var  ActionCall = React.createClass({
 
   render: function() {
     let todoId = this.props.params.todoId;
+
     if (todoId !== undefined) {
         var currentTodo = getTodoObject(todoId);
         var property = listings[currentTodo.listingId];
@@ -24,8 +25,8 @@ var  ActionCall = React.createClass({
     return (
       <div className="action-call" id="actioncall">
 
-        <HeaderCall 
-            icon="fa-phone-square" 
+        <HeaderCall
+            icon="fa-phone-square"
             text="Call the Agent"
             description="Calling is the fastest way to deal with agents.By getting the faster response, your property will come closer."
             todoId={todoId}

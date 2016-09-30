@@ -1,10 +1,10 @@
 var  ActionVisit= React.createClass({
+    step: 2,
     action: "visit",
     done: function() {
         var todoId = this.props.params.todoId;
         updateTodo(todoId, this.action, true);
-        let next = getNextStep(todoId);
-        window.location = "/#/" + next + "/" + todoId;
+        goToNextStep(this.step, todoId);
     },
     later: function() {
         var todoId = this.props.params.todoId;
